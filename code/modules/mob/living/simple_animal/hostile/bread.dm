@@ -4,8 +4,8 @@
 	name = "tumor bread"
 	desc = "I have done nothing but teleport bread for three days."
 	icon_state = "tumorbread"
-	health = 1
-	maxHealth = 1
+	health = 10
+	maxHealth = 10
 	turns_per_move = 5  //this isn't player speed =|
 	speed = 2  //this is player speed
 	melee_damage_lower = 1
