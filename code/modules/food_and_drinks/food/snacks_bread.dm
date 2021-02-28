@@ -184,6 +184,12 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	tastes = list("bread" = 1)
 	foodtype = GRAIN
+	
+	/obj/item/reagent_containers/food/snacks/store/bread/proc/bread_teleport()
+	// you did WHAT?
+	new /mob/living/simple_animal/hostile/baguette(get_turf(src))
+	visible_message("<span class='warning'>[src] begins to deform and grow grotesque tumors!</span>")
+	qdel(src)
 
 /obj/item/reagent_containers/food/snacks/garlicbread
 	name = "garlic bread"
@@ -256,3 +262,17 @@
 	filling_color = "#B2D72C"
 	list_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/toxin = 2)
 	foodtype = GROSS | GRAIN
+	
+/obj/item/reagent_containers/food/snacks/store/bread/tumor_baguette
+	name = "dead baguette snake"
+	desc = "It's still within its expiration date, right?"
+	icon_state = "baguettesnake"
+	slice_path = /obj/item/reagent_containers/food/snacks/breadslice/tumor_bread
+	list_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/toxin = 10)
+	foodtype = GROSS | GRAIN
+	tastes = list("wheat, tumors, and France" = 10)
+
+//teleporting tumor bread kills it
+/obj/item/reagent_containers/food/snacks/store/bread/tumor_baguette/bread_teleport()
+	visible_message(src, "<span class='warning'>[src] explodes in a horrible mess of tumor and flour!</span>")
+	qdel(src)
